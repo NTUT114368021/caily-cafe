@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>凱莉日嚐 Caily Cafe</title>
+    <meta name="description" content="凱莉日嚐布偶貓主題蛋糕店，提供限時蛋糕、生日蛋糕、6吋塔與長條捲。">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body data-page="home">
+    <div class="notice-bar">新品與節慶蛋糕接受預訂中，加入購物車可先暫存想詢問的品項。</div>
+    <header class="site-header">
+      <div class="utility-row">
+        <a class="utility-link" href="https://www.instagram.com/cailycafe_daily/" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="cart-link" href="cart.html">購物車 <span data-cart-count>0</span></a>
+      </div>
+      <a class="brand" href="index.html" aria-label="凱莉日嚐首頁">
+        <img src="assets/images/caily-logo.png" alt="Caily Cafe logo">
+        <span>CAILY CAFE</span>
+        <small>凱莉日嚐</small>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">選單</button>
+      <nav id="site-nav" class="site-nav" aria-label="主選單">
+        <div class="nav-dropdown">
+          <a href="limited.html">限時蛋糕</a>
+          <div class="dropdown-menu mega-menu">
+            <a href="limited.html">本週限定</a>
+            <a href="limited.html">新品上市</a>
+            <a href="limited.html">節慶優惠</a>
+          </div>
+        </div>
+        <a href="birthday.html">生日蛋糕</a>
+        <div class="nav-dropdown">
+          <a href="desserts.html">蛋糕點心</a>
+          <div class="dropdown-menu mega-menu">
+            <a href="tarts.html">6吋塔</a>
+            <a href="rolls.html">長條捲</a>
+            <a href="desserts.html">冷藏甜點</a>
+          </div>
+        </div>
+        <a href="cat-schedule.html">貓咪班表</a>
+        <div class="nav-dropdown">
+          <a href="about.html">關於我們</a>
+          <div class="dropdown-menu mega-menu">
+            <a href="about.html">品牌故事</a>
+            <a href="about.html">訂購方式</a>
+            <a href="about.html">門市資訊</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="carousel" aria-label="自動滑動照片集">
+        <div class="slides" data-carousel>
+          <article class="slide is-active">
+            <img src="assets/photos/hero-cake.svg" alt="凱莉日嚐限時蛋糕">
+            <div class="slide-copy">
+              <p>Ragdoll Cat Cake Shop</p>
+              <h1>布偶貓陪你挑一塊今天的甜。</h1>
+              <a class="button" href="limited.html">看限時蛋糕</a>
+            </div>
+          </article>
+          <article class="slide">
+            <img src="assets/photos/hero-tart.svg" alt="6吋塔甜點">
+            <div class="slide-copy">
+              <p>Fresh Tart</p>
+              <h1>6吋塔、長條捲，日常也要有小慶祝。</h1>
+              <a class="button" href="desserts.html">看蛋糕點心</a>
+            </div>
+          </article>
+          <article class="slide">
+            <img src="assets/photos/hero-roll.svg" alt="長條捲甜點">
+            <div class="slide-copy">
+              <p>Birthday & Daily Cake</p>
+              <h1>生日、聚會、下午茶，都有剛好的尺寸。</h1>
+              <a class="button" href="birthday.html">看生日蛋糕</a>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-dots" data-carousel-dots></div>
+      </section>
+
+      <section class="section featured">
+        <div class="section-heading centered">
+          <p class="eyebrow">Featured Cakes</p>
+          <h2>今日推薦</h2>
+          <p>首頁先放 3 到 4 個主打蛋糕，之後可以換成店內最新商品。</p>
+        </div>
+        <div class="product-grid four" data-featured-products></div>
+      </section>
+
+      <section class="section shopline-style">
+        <div class="section-heading centered">
+          <p class="eyebrow">Caily Selection</p>
+          <h2>人氣分類</h2>
+          <p>像甜點電商一樣，把顧客最常找的品項直接放在首頁。</p>
+        </div>
+        <div class="category-showcase">
+          <a href="limited.html">
+            <img src="assets/photos/product-fruit-cake.svg" alt="最新優惠">
+            <strong>最新優惠</strong>
+            <span>本週限定與新品</span>
+          </a>
+          <a href="birthday.html">
+            <img src="assets/photos/product-birthday.svg" alt="生日蛋糕">
+            <strong>生日蛋糕</strong>
+            <span>慶生與客製款</span>
+          </a>
+          <a href="tarts.html">
+            <img src="assets/photos/product-lemon-tart.svg" alt="6吋塔">
+            <strong>蛋糕點心</strong>
+            <span>6吋塔與冷藏甜點</span>
+          </a>
+          <a href="cat-schedule.html">
+            <img src="assets/images/ragdoll-cat-corner.svg" alt="貓咪班表">
+            <strong>貓咪班表</strong>
+            <span>看看今日值班貓咪</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section cat-theme">
+        <div>
+          <p class="eyebrow">Caily Cafe</p>
+          <h2>布偶貓主題甜點店</h2>
+          <p>
+            整體視覺以柔和奶油色、咖啡色與貓掌細節為主。網站上方使用你的 Caily Cafe
+            圓形 Logo，滑鼠也改成貓爪印，讓品牌感更明確。
+          </p>
+        </div>
+        <img src="assets/images/caily-logo.png" alt="Caily Cafe 布偶貓主題 Logo">
+      </section>
+
+      <section class="section payment-section">
+        <div>
+          <p class="eyebrow">Payment</p>
+          <h2>付款方式</h2>
+          <p>支援 Visa、Mastercard、JCB、Apple Pay 與 LINE Pay。</p>
+        </div>
+        <img src="assets/images/payment-methods.png" alt="付款方式">
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 凱莉日嚐 Caily Cafe</p>
+      <a href="cart.html">查看購物車</a>
+    </footer>
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>
+

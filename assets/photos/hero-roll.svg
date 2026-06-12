@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#f2d6b1"/>
+  <rect x="170" y="250" width="560" height="150" rx="75" fill="#b67a43"/>
+  <ellipse cx="230" cy="325" rx="75" ry="75" fill="#fff5e8"/>
+  <circle cx="230" cy="325" r="36" fill="#d6a06e"/>
+  <text x="450" y="535" text-anchor="middle" fill="#6c4424" font-family="Arial" font-size="48" font-weight="700">Roll Cake</text>
+</svg>
