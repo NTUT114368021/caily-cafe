@@ -1,5 +1,5 @@
 const CART_KEY = "caily-cart";
-const products = window.CAILY_PRODUCTS || [];
+let products = window.CAILY_PRODUCTS || [];
 
 const formatPrice = (price) => `NT$${price.toLocaleString("zh-TW")}`;
 const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || "{}");
@@ -30,6 +30,90 @@ const addCornerCat = () => {
     <span class="cat-label">喵喵巡店中</span>
   `;
   document.body.appendChild(cat);
+};
+
+const parseCsv = (csvText) => {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+
+  for (let index = 0; index < csvText.length; index += 1) {
+    const char = csvText[index];
+    const next = csvText[index + 1];
+
+    if (char === "\"" && inQuotes && next === "\"") {
+      field += "\"";
+      index += 1;
+    } else if (char === "\"") {
+      inQuotes = !inQuotes;
+    } else if (char === "," && !inQuotes) {
+      row.push(field);
+      field = "";
+    } else if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && next === "\n") index += 1;
+      row.push(field);
+      if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+      row = [];
+      field = "";
+    } else {
+      field += char;
+    }
+  }
+
+  row.push(field);
+  if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+  return rows;
+};
+
+const truthy = (value) => ["true", "yes", "y", "1", "是"].includes(String(value || "").trim().toLowerCase());
+
+const normalizeProducts = (rows) => {
+  if (rows.length < 2) return [];
+  const headers = rows[0].map((header) => header.trim());
+
+  return rows.slice(1).map((row) => {
+    const record = Object.fromEntries(headers.map((header, index) => [header, (row[index] || "").trim()]));
+    return {
+      id: record.id,
+      category: record.category,
+      featured: truthy(record.featured),
+      name: record.name,
+      description: record.description,
+      detail: record.detail || record.description,
+      specs: (record.specs || "").split("｜").map((item) => item.trim()).filter(Boolean),
+      price: Number(record.price || 0),
+      label: record.label,
+      image: record.image,
+      visible: record.visible === "" ? true : truthy(record.visible)
+    };
+  }).filter((product) => (
+    product.visible &&
+    product.id &&
+    product.category &&
+    product.name &&
+    product.image
+  ));
+};
+
+const loadProductsFromSheet = async () => {
+  const csvUrl = window.CAILY_CONFIG?.productsCsvUrl?.trim();
+  if (!csvUrl) return;
+
+  try {
+    const response = await fetch(`${csvUrl}${csvUrl.includes("?") ? "&" : "?"}cache=${Date.now()}`, {
+      cache: "no-store"
+    });
+    if (!response.ok) throw new Error(`Google Sheet responded ${response.status}`);
+    const csvText = await response.text();
+    const sheetProducts = normalizeProducts(parseCsv(csvText));
+    if (sheetProducts.length) {
+      products = sheetProducts;
+      window.CAILY_PRODUCTS = sheetProducts;
+    }
+  } catch (error) {
+    console.warn("Google Sheet products could not be loaded. Using fallback data.", error);
+  }
 };
 
 const productCard = (product) => `
@@ -197,9 +281,14 @@ document.querySelector("[data-clear-cart]")?.addEventListener("click", () => {
   updateCartCount();
 });
 
-renderProducts();
-setupCarousel();
-renderProductDetail();
-renderCart();
-updateCartCount();
-addCornerCat();
+const initSite = async () => {
+  await loadProductsFromSheet();
+  renderProducts();
+  setupCarousel();
+  renderProductDetail();
+  renderCart();
+  updateCartCount();
+  addCornerCat();
+};
+
+initSite();
