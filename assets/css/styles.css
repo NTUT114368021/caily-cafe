@@ -827,6 +827,131 @@ img { display: block; max-width: 100%; }
 
 .site-footer p { margin: 0; }
 
+.admin-page {
+  background:
+    linear-gradient(rgba(255, 250, 243, 0.9), rgba(255, 250, 243, 0.9)),
+    url("../images/storefront-sketch.png") center top / min(88vw, 880px) auto no-repeat,
+    var(--bg);
+}
+
+.admin-shell {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 34px 0 80px;
+}
+
+.admin-hero {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.admin-brand {
+  padding-bottom: 0;
+}
+
+.admin-hero p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+.admin-card {
+  padding: 26px;
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.admin-card h1,
+.admin-card h2 {
+  margin: 0 0 12px;
+}
+
+.admin-hint,
+.admin-card p,
+.admin-steps,
+.admin-message {
+  color: var(--muted);
+}
+
+.admin-card form,
+.admin-card label {
+  display: grid;
+}
+
+.admin-card label {
+  gap: 7px;
+  margin-top: 16px;
+  color: var(--brand-dark);
+  font-weight: 900;
+}
+
+.admin-card input,
+.admin-card select,
+.admin-card textarea {
+  width: 100%;
+  padding: 12px 13px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.admin-card textarea {
+  resize: vertical;
+}
+
+.admin-checks {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.admin-checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.admin-checks input {
+  width: auto;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.admin-message {
+  min-height: 28px;
+  margin-bottom: 0;
+  white-space: pre-wrap;
+}
+
+.admin-message[data-type="success"] { color: #2f7a44; }
+.admin-message[data-type="error"] { color: #a33a32; }
+.admin-message[data-type="warn"] { color: var(--brand-dark); }
+
+.admin-steps {
+  padding-left: 1.4rem;
+}
+
 @media (max-width: 960px) {
   .menu-toggle {
     display: block;
@@ -894,6 +1019,10 @@ img { display: block; max-width: 100%; }
   }
 
   .about-hero { display: grid; text-align: center; justify-items: center; }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
 
   .cat-schedule-hero {
     grid-template-columns: 1fr;

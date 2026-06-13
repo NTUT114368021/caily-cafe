@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商品後台｜凱莉日嚐</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body class="admin-page">
+    <main class="admin-shell">
+      <section class="admin-hero">
+        <a class="brand admin-brand" href="index.html">
+          <img src="assets/images/caily-logo.png" alt="Caily Cafe logo">
+          <span>CAILY CAFE</span>
+          <small>商品後台</small>
+        </a>
+        <p>這個頁面給店長新增或更新商品。接上 Google Apps Script 後，送出會寫入 Google Sheet。</p>
+      </section>
+
+      <section class="admin-layout">
+        <form class="admin-card" data-admin-form>
+          <h1>新增 / 更新商品</h1>
+          <p class="admin-hint">如果 `id` 已存在，後台會更新同一筆商品；如果不存在，會新增一筆。</p>
+
+          <label>
+            商品 ID
+            <input name="id" required placeholder="例如 strawberry-cake">
+          </label>
+
+          <label>
+            分類
+            <select name="category" required>
+              <option value="limited">限時蛋糕</option>
+              <option value="birthday">生日蛋糕</option>
+              <option value="tarts">6吋塔</option>
+              <option value="rolls">長條捲</option>
+            </select>
+          </label>
+
+          <label>
+            商品名稱
+            <input name="name" required placeholder="例如 草莓鮮奶油蛋糕">
+          </label>
+
+          <label>
+            價格
+            <input name="price" type="number" min="0" step="1" required placeholder="980">
+          </label>
+
+          <label>
+            標籤
+            <input name="label" placeholder="新品 / 生日推薦 / 6吋塔">
+          </label>
+
+          <label>
+            卡片短介紹
+            <textarea name="description" rows="3" required placeholder="顯示在商品卡片上的短介紹"></textarea>
+          </label>
+
+          <label>
+            詳細介紹
+            <textarea name="detail" rows="5" placeholder="顯示在商品詳細頁的介紹"></textarea>
+          </label>
+
+          <label>
+            商品規格
+            <textarea name="specs" rows="3" placeholder="用 ｜ 分隔，例如：尺寸：6 吋｜適合人數：4-6 人｜冷藏保存"></textarea>
+          </label>
+
+          <label>
+            圖片路徑或圖片網址
+            <input name="image" required placeholder="assets/photos/my-cake.jpg 或 https://...">
+          </label>
+
+          <div class="admin-checks">
+            <label><input name="featured" type="checkbox"> 顯示在首頁今日推薦</label>
+            <label><input name="visible" type="checkbox" checked> 商品上架顯示</label>
+          </div>
+
+          <div class="admin-actions">
+            <button class="button no-margin" type="submit">送出到 Google Sheet</button>
+            <button class="button light no-margin" type="button" data-copy-csv>複製成 CSV 列</button>
+          </div>
+
+          <p class="admin-message" data-admin-message></p>
+        </form>
+
+        <aside class="admin-card">
+          <h2>店長怎麼用</h2>
+          <ol class="admin-steps">
+            <li>填商品資料。</li>
+            <li>圖片可以填網站內路徑，或雲端圖片網址。</li>
+            <li>按「送出到 Google Sheet」。</li>
+            <li>等 GitHub Pages 重新整理後，前台會讀取最新表格。</li>
+          </ol>
+
+          <h2>還沒接 Apps Script？</h2>
+          <p>先按「複製成 CSV 列」，貼到 Google Sheet 最下面，也可以更新商品。</p>
+
+          <h2>目前狀態</h2>
+          <p data-admin-status>讀取設定中...</p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="assets/js/admin-config.js"></script>
+    <script src="assets/js/admin.js"></script>
+  </body>
+</html>

@@ -16,7 +16,15 @@
 
 ## 老闆娘更新商品的方式
 
-建議用 Google Sheet 管商品。範本在：
+建議用 Google Sheet 管商品，並用 `admin.html` 當簡易後台。
+
+後台網址：
+
+```text
+https://ntut114368021.github.io/caily-cafe/admin.html
+```
+
+範本在：
 
 `google-sheet-template.csv`
 
@@ -52,6 +60,37 @@ window.CAILY_CONFIG = {
 ```
 
 如果 `productsCsvUrl` 是空字串，網站會使用 `assets/js/products.js` 裡的備援商品資料。
+
+## 連接簡易後台
+
+後台頁面是 `admin.html`，需要 Google Apps Script 才能把表單資料寫進 Google Sheet。
+
+### 建立 Apps Script
+
+1. 打開商品 Google Sheet。
+2. 點 `擴充功能` -> `Apps Script`。
+3. 把 `google-apps-script/product-admin.gs` 的內容貼進去。
+4. 修改 `ADMIN_TOKEN`，換成你自己的密碼字串。
+5. 按部署 -> 新增部署作業。
+6. 類型選 `網頁應用程式`。
+7. 執行身分選 `我`。
+8. 存取權可以先選 `知道連結的任何人`。
+9. 部署後複製 Web app URL。
+
+### 設定網站後台
+
+打開 `assets/js/admin-config.js`：
+
+```js
+window.CAILY_ADMIN_CONFIG = {
+  appsScriptUrl: "貼上 Apps Script Web app URL",
+  adminToken: "跟 Apps Script 裡 ADMIN_TOKEN 一樣"
+};
+```
+
+之後店長打開 `admin.html`，填商品表單按送出，就會寫入 Google Sheet。
+
+注意：這是輕量後台，適合小店內部使用。請不要把 `admin.html` 放到主選單，也不要把 token 設得太簡單。
 
 ## 圖片怎麼放
 
