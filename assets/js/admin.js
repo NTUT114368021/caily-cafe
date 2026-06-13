@@ -19,6 +19,7 @@ const columns = [
 ];
 
 const setMessage = (text, type = "") => {
+  if (!message) return;
   message.textContent = text;
   message.dataset.type = type;
 };
@@ -62,7 +63,7 @@ const payloadToCsvLine = (payload) => columns.map((column) => csvEscape(payload[
 if (statusNode) {
   statusNode.textContent = adminConfig.appsScriptUrl
     ? "已設定 Apps Script，可以送出到 Google Sheet。"
-    : "尚未設定 Apps Script。可以先用 CSV 複製功能。";
+    : "尚未設定 Apps Script。你仍可使用「複製 CSV 文字」手動貼到 Google Sheet。";
 }
 
 form?.addEventListener("submit", async (event) => {
@@ -70,19 +71,19 @@ form?.addEventListener("submit", async (event) => {
   const payload = getPayload();
 
   if (!adminConfig.appsScriptUrl) {
-    setMessage("尚未設定 Apps Script URL，請先用「複製成 CSV 列」貼到 Google Sheet。", "warn");
+    setMessage("尚未設定 Apps Script URL，請先複製 CSV 文字手動貼到 Google Sheet。", "warn");
     return;
   }
 
   try {
     setMessage("送出中...");
     await postToAdminScript(payload);
-    setMessage("已送出。請到 Google Sheet 確認資料是否更新。", "success");
+    setMessage("已送出到 Google Sheet。請稍等幾秒後重新整理網站確認。", "success");
     form.reset();
     form.elements.visible.checked = true;
   } catch (error) {
     console.error(error);
-    setMessage("送出失敗，請檢查 Apps Script URL 或網路連線。", "error");
+    setMessage("送出失敗，請檢查 Apps Script URL 與網路狀態。", "error");
   }
 });
 
@@ -94,11 +95,11 @@ document.querySelector("[data-delete-product]")?.addEventListener("click", async
   }
 
   if (!adminConfig.appsScriptUrl) {
-    setMessage("尚未設定 Apps Script URL。現在請先到 Google Sheet 手動刪除該列，或把 visible 改成 FALSE 下架。", "warn");
+    setMessage("尚未設定 Apps Script URL，無法直接刪除。請到 Google Sheet 手動刪除該列。", "warn");
     return;
   }
 
-  const confirmed = window.confirm(`確定要刪除商品「${id}」嗎？這會刪掉 Google Sheet 裡的整列資料。`);
+  const confirmed = window.confirm(`確定要刪除商品「${id}」嗎？`);
   if (!confirmed) return;
 
   try {
@@ -108,11 +109,11 @@ document.querySelector("[data-delete-product]")?.addEventListener("click", async
       action: "delete",
       id
     });
-    setMessage("已送出刪除要求。請到 Google Sheet 確認該商品是否已刪除。", "success");
+    setMessage("已送出刪除要求到 Google Sheet。請稍等幾秒後重新整理網站確認。", "success");
     deleteIdInput.value = "";
   } catch (error) {
     console.error(error);
-    setMessage("刪除失敗，請檢查 Apps Script URL 或網路連線。", "error");
+    setMessage("刪除失敗，請檢查 Apps Script URL 與網路狀態。", "error");
   }
 });
 
@@ -122,7 +123,7 @@ document.querySelector("[data-copy-csv]")?.addEventListener("click", async () =>
 
   try {
     await navigator.clipboard.writeText(csvLine);
-    setMessage("已複製 CSV 列，可以貼到 Google Sheet 最下面。", "success");
+    setMessage("已複製 CSV 文字，可以貼到 Google Sheet。", "success");
   } catch {
     setMessage(csvLine, "warn");
   }

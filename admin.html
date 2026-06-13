@@ -12,15 +12,15 @@
         <a class="brand admin-brand" href="index.html">
           <img src="assets/images/caily-logo.png" alt="Caily Cafe logo">
           <span>CAILY CAFE</span>
-          <small>商品後台</small>
+          <small>凱莉日嚐</small>
         </a>
-        <p>這個頁面給店長新增或更新商品。接上 Google Apps Script 後，送出會寫入 Google Sheet。</p>
+        <p>店長可以在這裡新增、修改、刪除商品。若已設定 Google Apps Script，送出後會同步到 Google Sheet。</p>
       </section>
 
       <section class="admin-layout">
         <form class="admin-card" data-admin-form>
-          <h1>新增 / 更新商品</h1>
-          <p class="admin-hint">如果 `id` 已存在，後台會更新同一筆商品；如果不存在，會新增一筆。</p>
+          <h1>新增 / 修改商品</h1>
+          <p class="admin-hint">如果輸入新的商品 ID，就是新增商品；如果輸入已存在的商品 ID，就是修改該商品。</p>
 
           <label>
             商品 ID
@@ -34,6 +34,7 @@
               <option value="birthday">生日蛋糕</option>
               <option value="tarts">6吋塔</option>
               <option value="rolls">長條捲</option>
+              <option value="desserts">蛋糕甜點</option>
             </select>
           </label>
 
@@ -49,63 +50,60 @@
 
           <label>
             標籤
-            <input name="label" placeholder="新品 / 生日推薦 / 6吋塔">
+            <input name="label" placeholder="例如 限時蛋糕 / 生日蛋糕 / 6吋塔">
           </label>
 
           <label>
-            卡片短介紹
-            <textarea name="description" rows="3" required placeholder="顯示在商品卡片上的短介紹"></textarea>
+            簡短描述
+            <textarea name="description" rows="3" required placeholder="會顯示在商品卡片上的短描述"></textarea>
           </label>
 
           <label>
             詳細介紹
-            <textarea name="detail" rows="5" placeholder="顯示在商品詳細頁的介紹"></textarea>
+            <textarea name="detail" rows="5" placeholder="會顯示在商品詳細頁的介紹"></textarea>
           </label>
 
           <label>
             商品規格
-            <textarea name="specs" rows="3" placeholder="用 ｜ 分隔，例如：尺寸：6 吋｜適合人數：4-6 人｜冷藏保存"></textarea>
+            <textarea name="specs" rows="3" placeholder="可用分號分隔，例如 尺寸：6吋；建議提前 2 天預訂"></textarea>
           </label>
 
           <label>
-            圖片路徑或圖片網址
+            商品圖片網址
             <input name="image" required placeholder="assets/photos/my-cake.jpg 或 https://...">
           </label>
 
           <div class="admin-checks">
-            <label><input name="featured" type="checkbox"> 顯示在首頁今日推薦</label>
+            <label><input name="featured" type="checkbox"> 顯示在首頁限時蛋糕</label>
             <label><input name="visible" type="checkbox" checked> 商品上架顯示</label>
           </div>
 
           <div class="admin-actions">
             <button class="button no-margin" type="submit">送出到 Google Sheet</button>
-            <button class="button light no-margin" type="button" data-copy-csv>複製成 CSV 列</button>
+            <button class="button light no-margin" type="button" data-copy-csv>複製 CSV 文字</button>
           </div>
 
           <p class="admin-message" data-admin-message></p>
         </form>
 
         <aside class="admin-card">
-          <h2>店長怎麼用</h2>
-          <ol class="admin-steps">
-            <li>填商品資料。</li>
-            <li>圖片可以填網站內路徑，或雲端圖片網址。</li>
-            <li>按「送出到 Google Sheet」。</li>
-            <li>等 GitHub Pages 重新整理後，前台會讀取最新表格。</li>
-          </ol>
-
-          <h2>還沒接 Apps Script？</h2>
-          <p>先按「複製成 CSV 列」，貼到 Google Sheet 最下面，也可以更新商品。要下架商品時，把 Google Sheet 裡的 `visible` 改成 `FALSE`。</p>
-
+          <h2>刪除商品</h2>
+          <p>輸入商品 ID 後按下刪除，會送出刪除要求到 Google Sheet。</p>
           <div class="admin-danger-zone">
-            <h2>刪除商品</h2>
-            <p>輸入商品 ID 後刪除。這會刪掉 Google Sheet 裡同一個 ID 的整列資料。</p>
             <label>
               要刪除的商品 ID
               <input data-delete-id placeholder="例如 strawberry-cake">
             </label>
             <button class="button danger no-margin" type="button" data-delete-product>刪除商品</button>
           </div>
+
+          <h2>操作方式</h2>
+          <ol class="admin-steps">
+            <li>新增商品：填入新的商品 ID 與資料後送出。</li>
+            <li>修改商品：填入同一個商品 ID，再更新資料後送出。</li>
+            <li>刪除商品：在右側刪除區輸入商品 ID 後刪除。</li>
+            <li>圖片可以先放在網站資料夾，也可以使用網路圖片網址。</li>
+          </ol>
 
           <h2>目前狀態</h2>
           <p data-admin-status>讀取設定中...</p>

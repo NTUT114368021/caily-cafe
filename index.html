@@ -1,155 +1,304 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>凱莉日嚐 Caily Cafe</title>
-    <meta name="description" content="凱莉日嚐布偶貓主題蛋糕店，提供限時蛋糕、生日蛋糕、6吋塔與長條捲。">
+    <title>凱莉日嚐｜韓式浪漫手工蛋糕</title>
+    <meta name="description" content="凱莉日嚐是布偶貓主題手工蛋糕店，提供新鮮現做、客製生日蛋糕、限時蛋糕與甜點預訂。">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
-  <body data-page="home">
-    <div class="notice-bar">新品與節慶蛋糕接受預訂中，加入購物車可先暫存想詢問的品項。</div>
-    <header class="site-header">
-      <div class="utility-row">
-        <a class="utility-link" href="https://www.instagram.com/cailycafe_daily/" target="_blank" rel="noreferrer">Instagram</a>
-        <a class="cart-link" href="cart.html">購物車 <span data-cart-count>0</span></a>
-      </div>
-      <a class="brand" href="index.html" aria-label="凱莉日嚐首頁">
-        <img src="assets/images/caily-logo.png" alt="Caily Cafe logo">
-        <span>CAILY CAFE</span>
-        <small>凱莉日嚐</small>
+  <body data-page="home" class="romantic-home">
+    <header class="romantic-header">
+      <a class="romantic-brand" href="#hero" aria-label="凱莉日嚐首頁">
+        <img src="assets/images/caily-logo.png" alt="凱莉日嚐 Caily Cafe logo">
+        <span>凱莉日嚐</span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">選單</button>
-      <nav id="site-nav" class="site-nav" aria-label="主選單">
-        <div class="nav-dropdown">
-          <a href="limited.html">限時蛋糕</a>
-          <div class="dropdown-menu mega-menu">
-            <a href="limited.html">本週限定</a>
-            <a href="limited.html">新品上市</a>
-            <a href="limited.html">節慶優惠</a>
+
+      <button class="romantic-menu-toggle" type="button" aria-expanded="false" aria-controls="home-nav">選單</button>
+
+      <nav id="home-nav" class="romantic-nav" aria-label="首頁導覽">
+        <a href="#menu">限時蛋糕</a>
+        <div class="romantic-dropdown">
+          <a href="#desserts">蛋糕甜點</a>
+          <div class="romantic-dropdown-menu">
+            <a href="#birthday-cakes">生日蛋糕</a>
+            <a href="#tart-cakes">6吋塔</a>
+            <a href="#roll-cakes">長條捲</a>
           </div>
         </div>
-        <a href="birthday.html">生日蛋糕</a>
-        <div class="nav-dropdown">
-          <a href="desserts.html">蛋糕點心</a>
-          <div class="dropdown-menu mega-menu">
-            <a href="tarts.html">6吋塔</a>
-            <a href="rolls.html">長條捲</a>
-            <a href="desserts.html">冷藏甜點</a>
-          </div>
-        </div>
-        <a href="cat-schedule.html">貓咪班表</a>
-        <div class="nav-dropdown">
-          <a href="about.html">關於我們</a>
-          <div class="dropdown-menu mega-menu">
-            <a href="about.html">品牌故事</a>
-            <a href="about.html">訂購方式</a>
-            <a href="about.html">門市資訊</a>
-          </div>
-        </div>
+        <a href="#cart">購物車 <span data-cart-count>0</span></a>
+        <a href="#checkout">結帳</a>
+        <a href="#cat-schedule">貓咪班表</a>
+        <a href="#about">關於我們</a>
+        <a class="nav-line" href="https://line.me/R/ti/p/@042msbid" target="_blank" rel="noreferrer">LINE 預訂</a>
       </nav>
     </header>
 
     <main>
-      <section class="carousel" aria-label="自動滑動照片集">
-        <div class="slides" data-carousel>
-          <article class="slide is-active">
-            <img src="assets/photos/hero-cake.svg" alt="凱莉日嚐限時蛋糕">
-            <div class="slide-copy">
-              <p>Ragdoll Cat Cake Shop</p>
-              <h1>布偶貓陪你挑一塊今天的甜。</h1>
-              <a class="button" href="limited.html">看限時蛋糕</a>
-            </div>
-          </article>
-          <article class="slide">
-            <img src="assets/photos/hero-tart.svg" alt="6吋塔甜點">
-            <div class="slide-copy">
-              <p>Fresh Tart</p>
-              <h1>6吋塔、長條捲，日常也要有小慶祝。</h1>
-              <a class="button" href="desserts.html">看蛋糕點心</a>
-            </div>
-          </article>
-          <article class="slide">
-            <img src="assets/photos/hero-roll.svg" alt="長條捲甜點">
-            <div class="slide-copy">
-              <p>Birthday & Daily Cake</p>
-              <h1>生日、聚會、下午茶，都有剛好的尺寸。</h1>
-              <a class="button" href="birthday.html">看生日蛋糕</a>
-            </div>
-          </article>
+      <section id="hero" class="romantic-hero">
+        <div class="hero-bloom hero-bloom-one"></div>
+        <div class="hero-bloom hero-bloom-two"></div>
+        <div class="romantic-hero-copy">
+          <p class="romantic-kicker">Ragdoll Cat Patisserie</p>
+          <h1>凱莉日嚐</h1>
+          <p class="romantic-tagline">用甜點陪你度過每個重要時刻</p>
+          <p class="romantic-hero-text">
+            以每日現做的手工蛋糕、柔和奶油色調與布偶貓的可愛陪伴，替生日、派對與日常午後留下一點甜。
+          </p>
+          <div class="romantic-actions">
+            <a class="romantic-button primary" href="#menu">查看菜單</a>
+            <a class="romantic-button secondary" href="#checkout">立即預訂</a>
+          </div>
         </div>
-        <div class="carousel-dots" data-carousel-dots></div>
-      </section>
-
-      <section class="section featured">
-        <div class="section-heading centered">
-          <p class="eyebrow">Featured Cakes</p>
-          <h2>今日推薦</h2>
-          <p>首頁先放 3 到 4 個主打蛋糕，之後可以換成店內最新商品。</p>
-        </div>
-        <div class="product-grid four" data-featured-products></div>
-      </section>
-
-      <section class="section shopline-style">
-        <div class="section-heading centered">
-          <p class="eyebrow">Caily Selection</p>
-          <h2>人氣分類</h2>
-          <p>像甜點電商一樣，把顧客最常找的品項直接放在首頁。</p>
-        </div>
-        <div class="category-showcase">
-          <a href="limited.html">
-            <img src="assets/photos/product-fruit-cake.svg" alt="最新優惠">
-            <strong>最新優惠</strong>
-            <span>本週限定與新品</span>
-          </a>
-          <a href="birthday.html">
-            <img src="assets/photos/product-birthday.svg" alt="生日蛋糕">
-            <strong>生日蛋糕</strong>
-            <span>慶生與客製款</span>
-          </a>
-          <a href="tarts.html">
-            <img src="assets/photos/product-lemon-tart.svg" alt="6吋塔">
-            <strong>蛋糕點心</strong>
-            <span>6吋塔與冷藏甜點</span>
-          </a>
-          <a href="cat-schedule.html">
-            <img src="assets/images/ragdoll-cat-corner.svg" alt="貓咪班表">
-            <strong>貓咪班表</strong>
-            <span>看看今日值班貓咪</span>
-          </a>
+        <div class="romantic-hero-media">
+          <img src="assets/photos/product-birthday.svg" alt="凱莉日嚐浪漫生日蛋糕">
+          <span class="cat-note">布偶貓主題甜點日常</span>
         </div>
       </section>
 
-      <section class="section cat-theme">
-        <div>
-          <p class="eyebrow">Caily Cafe</p>
-          <h2>布偶貓主題甜點店</h2>
+      <section id="about" class="romantic-section about-romantic">
+        <div class="section-title">
+          <p class="romantic-kicker">About Caily Cafe</p>
+          <h2>關於我們</h2>
+        </div>
+        <div class="about-romantic-grid">
+          <div>
+            <p>
+              凱莉日嚐是一間溫柔的手工蛋糕店，將新鮮食材、每日現做與細緻裝飾放進每一份甜點裡。
+              我們相信蛋糕不只是甜點，也是一段重要時刻被好好記住的方式。
+            </p>
+            <p>
+              從生日蛋糕、6吋塔到長條捲，都能依照人數、口味、裝飾與文字需求做客製化討論。
+            </p>
+          </div>
+          <div class="about-card">
+            <strong>新鮮食材</strong>
+            <strong>每日現做</strong>
+            <strong>可客製化蛋糕</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="romantic-section menu-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Limited Cakes</p>
+          <h2>限時蛋糕</h2>
+          <p>精選近期推薦甜點，點擊「加入購物車」後可以選尺寸、口味與生日牌文字。</p>
+        </div>
+        <div class="romantic-product-grid" data-limited-products></div>
+      </section>
+
+      <section id="desserts" class="romantic-section custom-romantic">
+        <div class="custom-copy">
+          <p class="romantic-kicker">Desserts</p>
+          <h2>蛋糕甜點</h2>
           <p>
-            整體視覺以柔和奶油色、咖啡色與貓掌細節為主。網站上方使用你的 Caily Cafe
-            圓形 Logo，滑鼠也改成貓爪印，讓品牌感更明確。
+            這裡可以放生日蛋糕、6吋塔與長條捲。店長之後可在後台新增商品、調整分類、價格與圖片，首頁會依商品資料更新。
           </p>
         </div>
-        <img src="assets/images/caily-logo.png" alt="Caily Cafe 布偶貓主題 Logo">
+        <div class="custom-options">
+          <a href="#birthday-cakes">生日蛋糕</a>
+          <a href="#tart-cakes">6吋塔</a>
+          <a href="#roll-cakes">長條捲</a>
+          <a href="admin.html">店長後台管理</a>
+        </div>
       </section>
 
-      <section class="section payment-section">
-        <div>
-          <p class="eyebrow">Payment</p>
-          <h2>付款方式</h2>
-          <p>支援 Visa、Mastercard、JCB、Apple Pay 與 LINE Pay。</p>
+      <section id="birthday-cakes" class="romantic-section menu-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Birthday Cakes</p>
+          <h2>生日蛋糕</h2>
+          <p>可選尺寸、口味、生日牌文字與蠟燭需求，適合每一個值得慶祝的日子。</p>
         </div>
-        <img src="assets/images/payment-methods.png" alt="付款方式">
+        <div class="romantic-product-grid" data-category-products="birthday"></div>
+      </section>
+
+      <section id="tart-cakes" class="romantic-section menu-romantic soft-band">
+        <div class="section-title centered">
+          <p class="romantic-kicker">6 Inch Tarts</p>
+          <h2>6吋塔</h2>
+          <p>清爽水果、檸檬酸香與酥脆塔皮，適合下午茶與小聚分享。</p>
+        </div>
+        <div class="romantic-product-grid" data-category-products="tarts"></div>
+      </section>
+
+      <section id="roll-cakes" class="romantic-section menu-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Roll Cakes</p>
+          <h2>長條捲</h2>
+          <p>柔軟蛋糕捲搭配奶油與茶香，簡單、耐吃，也很適合送禮。</p>
+        </div>
+        <div class="romantic-product-grid" data-category-products="rolls"></div>
+      </section>
+
+      <section id="cart" class="romantic-section cart-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Shopping Cart</p>
+          <h2>購物車</h2>
+          <p>購物車會自動儲存在瀏覽器 localStorage，重新整理後也不會消失。</p>
+        </div>
+        <div class="shop-panel">
+          <div data-cart-items></div>
+          <aside class="cart-summary romantic-cart-summary">
+            <h3>訂單合計</h3>
+            <p>總金額：<strong data-cart-total>NT$0</strong></p>
+            <button class="romantic-button secondary wide" type="button" data-clear-cart>清空購物車</button>
+          </aside>
+        </div>
+      </section>
+
+      <section id="checkout" class="romantic-section checkout-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Checkout</p>
+          <h2>結帳表單</h2>
+          <p>送出後會在畫面上產生訂單編號與明細，目前不會直接寫入 Google Sheet 或自動通知 LINE。</p>
+        </div>
+
+        <form class="checkout-form" data-checkout-form>
+          <label>姓名<input name="customerName" required></label>
+          <label>電話<input name="phone" required inputmode="tel"></label>
+          <label>Email<input name="email" type="email"></label>
+          <label>取貨方式
+            <select name="pickupMethod" required data-pickup-method>
+              <option value="到店自取">到店自取</option>
+              <option value="外送">外送</option>
+            </select>
+          </label>
+          <label>取貨日期<input name="pickupDate" required type="date"></label>
+          <label>取貨時間<input name="pickupTime" required type="time"></label>
+          <label class="full" data-delivery-address>外送地址<input name="address" placeholder="選擇外送時必填"></label>
+          <label class="full">訂單備註<textarea name="orderNote" rows="4" placeholder="例如：希望下午 3 點後聯絡、蛋糕不要太甜"></textarea></label>
+          <button class="romantic-button primary full" type="submit">送出訂單</button>
+          <p class="form-error full" data-checkout-error></p>
+        </form>
+
+        <div class="order-success" data-order-success hidden></div>
+      </section>
+
+      <section id="process" class="romantic-section process-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Order Steps</p>
+          <h2>訂購流程</h2>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span><h3>選擇蛋糕</h3><p>從限時蛋糕或蛋糕甜點挑選喜歡的品項。</p></article>
+          <article><span>02</span><h3>填寫需求</h3><p>選擇尺寸、口味、生日牌文字與備註。</p></article>
+          <article><span>03</span><h3>確認訂單</h3><p>送出後取得訂單編號與明細。</p></article>
+          <article><span>04</span><h3>取貨或外送</h3><p>可選到店自取或填寫外送地址。</p></article>
+        </div>
+      </section>
+
+      <section id="cat-schedule" class="romantic-section cat-schedule-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Cat Schedule</p>
+          <h2>貓咪班表</h2>
+          <p>布偶貓陪店時間會依店內狀況調整，來店前也可以先用 LINE 詢問當天是否在店裡。</p>
+        </div>
+        <div class="cat-schedule-cards">
+          <article><span>Mon - Fri</span><h3>平日午後</h3><p>14:00 - 18:00 視狀況陪店</p></article>
+          <article><span>Weekend</span><h3>週末甜點時光</h3><p>13:00 - 17:00 不定時出沒</p></article>
+          <article><span>Notice</span><h3>小提醒</h3><p>貓咪休息時不打擾，歡迎拍照但請保持溫柔距離。</p></article>
+        </div>
+      </section>
+
+      <section id="reviews" class="romantic-section reviews-romantic">
+        <div class="section-title centered">
+          <p class="romantic-kicker">Reviews</p>
+          <h2>顧客評價</h2>
+        </div>
+        <div class="review-grid">
+          <article><div>★★★★★</div><p>蛋糕外型很精緻，鮮奶油清爽不膩，生日派對大家都很喜歡。</p><strong>陳小姐</strong></article>
+          <article><div>★★★★★</div><p>客製討論很細心，成品和想像的一樣溫柔，拍照非常漂亮。</p><strong>林小姐</strong></article>
+          <article><div>★★★★★</div><p>檸檬塔酸甜剛好，長條捲也很適合下午茶，下次還會再訂。</p><strong>王小姐</strong></article>
+        </div>
+      </section>
+
+      <section id="store" class="romantic-section store-romantic">
+        <div>
+          <p class="romantic-kicker">Store Info</p>
+          <h2>門市資訊</h2>
+          <ul class="store-list">
+            <li><strong>地址</strong><span>桃園市桃園區中正路1366號</span></li>
+            <li><strong>電話</strong><span>03-3171077</span></li>
+            <li><strong>營業時間</strong><span>平日 10:00-19:30</span></li>
+          </ul>
+        </div>
+        <div class="map-placeholder">
+          <span>Google Map</span>
+          <p>桃園市桃園區中正路1366號</p>
+        </div>
+      </section>
+
+      <section id="reservation" class="romantic-section reservation-romantic">
+        <div class="reservation-copy">
+          <p class="romantic-kicker">Reservation</p>
+          <h2>聯絡 / 預訂</h2>
+          <p>想先詢問蛋糕細節，也可以直接透過官方 LINE 與我們討論。</p>
+          <a class="romantic-button line" href="https://line.me/R/ti/p/@042msbid" target="_blank" rel="noreferrer">加入官方 LINE</a>
+        </div>
+        <form class="reservation-form" data-reservation-form>
+          <label>姓名<input name="name" required></label>
+          <label>電話<input name="phone" required inputmode="tel"></label>
+          <label>預訂日期<input name="date" required type="date"></label>
+          <label>蛋糕種類<input name="cake" required placeholder="例如 草莓鮮奶油蛋糕"></label>
+          <label class="full">備註<textarea name="note" rows="4" placeholder="尺寸、口味、生日牌文字或其他需求"></textarea></label>
+          <button class="romantic-button primary full" type="submit">送出預訂</button>
+          <p class="reservation-message full" data-reservation-message></p>
+        </form>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p>© 2026 凱莉日嚐 Caily Cafe</p>
-      <a href="cart.html">查看購物車</a>
+    <div class="option-modal" data-product-modal hidden>
+      <div class="option-modal-backdrop" data-close-modal></div>
+      <form class="option-dialog" data-option-form>
+        <button class="modal-close" type="button" data-close-modal aria-label="關閉">×</button>
+        <img data-modal-image alt="">
+        <div>
+          <p class="romantic-kicker" data-modal-category></p>
+          <h2 data-modal-name></h2>
+          <p data-modal-description></p>
+        </div>
+        <input name="productId" type="hidden">
+        <label>尺寸
+          <select name="size" required>
+            <option value="4吋">4吋</option>
+            <option value="6吋" selected>6吋</option>
+            <option value="8吋">8吋</option>
+            <option value="長條">長條</option>
+          </select>
+        </label>
+        <label>口味
+          <select name="flavor" required>
+            <option value="原味鮮奶油">原味鮮奶油</option>
+            <option value="草莓">草莓</option>
+            <option value="巧克力">巧克力</option>
+            <option value="芋泥">芋泥</option>
+            <option value="檸檬">檸檬</option>
+          </select>
+        </label>
+        <label>數量<input name="quantity" type="number" min="1" value="1" required></label>
+        <label>生日牌文字<input name="plaque" placeholder="例如：生日快樂 Lily"></label>
+        <label class="checkbox-line"><input name="candles" type="checkbox"> 需要蠟燭</label>
+        <label class="full">備註<textarea name="note" rows="3" placeholder="其他希望店家知道的需求"></textarea></label>
+        <button class="romantic-button primary full" type="submit">確認加入購物車</button>
+      </form>
+    </div>
+
+    <footer class="romantic-footer">
+      <div>
+        <strong>凱莉日嚐 Caily Cafe</strong>
+        <p>用甜點陪你度過每個重要時刻</p>
+      </div>
+      <nav aria-label="社群連結">
+        <a href="https://www.instagram.com/cailycafe_daily/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="#" aria-label="Facebook 尚未設定連結">Facebook</a>
+        <a href="https://line.me/R/ti/p/@042msbid" target="_blank" rel="noreferrer">LINE</a>
+      </nav>
+      <p>© 2026 凱莉日嚐. All rights reserved.</p>
     </footer>
 
-    <script src="assets/js/config.js"></script>`r`n    <script src="assets/js/products.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/products.js"></script>
     <script src="assets/js/site.js"></script>
   </body>
 </html>
-
-
