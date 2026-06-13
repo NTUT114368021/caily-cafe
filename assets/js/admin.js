@@ -2,6 +2,7 @@ const adminConfig = window.CAILY_ADMIN_CONFIG || {};
 const form = document.querySelector("[data-admin-form]");
 const message = document.querySelector("[data-admin-message]");
 const statusNode = document.querySelector("[data-admin-status]");
+const deleteIdInput = document.querySelector("[data-delete-id]");
 
 const columns = [
   "id",
@@ -26,6 +27,7 @@ const getPayload = () => {
   const data = new FormData(form);
   return {
     token: adminConfig.adminToken || "",
+    action: "upsert",
     id: data.get("id").trim(),
     category: data.get("category"),
     featured: data.get("featured") ? "TRUE" : "FALSE",
@@ -38,6 +40,15 @@ const getPayload = () => {
     image: data.get("image").trim(),
     visible: data.get("visible") ? "TRUE" : "FALSE"
   };
+};
+
+const postToAdminScript = async (payload) => {
+  await fetch(adminConfig.appsScriptUrl, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  });
 };
 
 const csvEscape = (value) => {
@@ -65,18 +76,43 @@ form?.addEventListener("submit", async (event) => {
 
   try {
     setMessage("送出中...");
-    await fetch(adminConfig.appsScriptUrl, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
-    });
+    await postToAdminScript(payload);
     setMessage("已送出。請到 Google Sheet 確認資料是否更新。", "success");
     form.reset();
     form.elements.visible.checked = true;
   } catch (error) {
     console.error(error);
     setMessage("送出失敗，請檢查 Apps Script URL 或網路連線。", "error");
+  }
+});
+
+document.querySelector("[data-delete-product]")?.addEventListener("click", async () => {
+  const id = deleteIdInput.value.trim();
+  if (!id) {
+    setMessage("請先輸入要刪除的商品 ID。", "warn");
+    return;
+  }
+
+  if (!adminConfig.appsScriptUrl) {
+    setMessage("尚未設定 Apps Script URL。現在請先到 Google Sheet 手動刪除該列，或把 visible 改成 FALSE 下架。", "warn");
+    return;
+  }
+
+  const confirmed = window.confirm(`確定要刪除商品「${id}」嗎？這會刪掉 Google Sheet 裡的整列資料。`);
+  if (!confirmed) return;
+
+  try {
+    setMessage("刪除中...");
+    await postToAdminScript({
+      token: adminConfig.adminToken || "",
+      action: "delete",
+      id
+    });
+    setMessage("已送出刪除要求。請到 Google Sheet 確認該商品是否已刪除。", "success");
+    deleteIdInput.value = "";
+  } catch (error) {
+    console.error(error);
+    setMessage("刪除失敗，請檢查 Apps Script URL 或網路連線。", "error");
   }
 });
 

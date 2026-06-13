@@ -95,7 +95,17 @@
           </ol>
 
           <h2>還沒接 Apps Script？</h2>
-          <p>先按「複製成 CSV 列」，貼到 Google Sheet 最下面，也可以更新商品。</p>
+          <p>先按「複製成 CSV 列」，貼到 Google Sheet 最下面，也可以更新商品。要下架商品時，把 Google Sheet 裡的 `visible` 改成 `FALSE`。</p>
+
+          <div class="admin-danger-zone">
+            <h2>刪除商品</h2>
+            <p>輸入商品 ID 後刪除。這會刪掉 Google Sheet 裡同一個 ID 的整列資料。</p>
+            <label>
+              要刪除的商品 ID
+              <input data-delete-id placeholder="例如 strawberry-cake">
+            </label>
+            <button class="button danger no-margin" type="button" data-delete-product>刪除商品</button>
+          </div>
 
           <h2>目前狀態</h2>
           <p data-admin-status>讀取設定中...</p>

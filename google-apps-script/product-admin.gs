@@ -23,10 +23,28 @@ function doPost(e) {
 
     const sheet = getSheet();
     ensureHeaders(sheet);
-    upsertProduct(sheet, payload);
+
+    if (payload.action === "delete") {
+      deleteProduct(sheet, payload.id);
+    } else {
+      upsertProduct(sheet, payload);
+    }
+
     return jsonResponse({ ok: true });
   } catch (error) {
     return jsonResponse({ ok: false, error: String(error) });
+  }
+}
+
+function deleteProduct(sheet, id) {
+  const lastRow = sheet.getLastRow();
+  if (!id || lastRow < 2) return;
+
+  const ids = sheet.getRange(2, 1, lastRow - 1, 1).getValues().flat();
+  const foundIndex = ids.findIndex((rowId) => rowId === id);
+
+  if (foundIndex >= 0) {
+    sheet.deleteRow(foundIndex + 2);
   }
 }
 

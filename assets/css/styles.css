@@ -952,6 +952,18 @@ img { display: block; max-width: 100%; }
   padding-left: 1.4rem;
 }
 
+.admin-danger-zone {
+  margin: 24px 0;
+  padding: 18px;
+  background: #fff4f0;
+  border: 1px solid #efc8bc;
+  border-radius: 8px;
+}
+
+.button.danger {
+  background: #9f3f32;
+}
+
 @media (max-width: 960px) {
   .menu-toggle {
     display: block;
